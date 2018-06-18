@@ -1,19 +1,38 @@
 #include <stdio.h>
-/**
- * Escreva uma função que encontra a primeira letra que não se repete em uma
- * sentença.
- * Função: char firstNonRepeatingChar(char[] sentence, int length)
- * Input:
- * - sentence: array não nulo de letras, formado apenas por ASCII em minúsculo.
- * - length: tamanho do array - número de caracteres
- * Output: A primeira letra que não se repete, ou -1, caso todas se repitam.
- */
+
 char firstNonRepeatingChar (char sentence[], int length)
 {
-    printf("\nfirstNonRepeatingChar::START: %s, %d\n", s, length);
+    printf("\nfirstNonRepeatingChar::START:\n");
     
-    // TODO: YOUR CODE HERE!
+    int c,j = 0;
+    int freq;
+    char letra;
+
+    //pega uma letra e verifica a frequencia dela em toda a palavra 
+    for (c = 0; c < length; c++){
+        //Eliminar espaço entre as palavras
+        if(sentence[c] == ' '){
+               c++;
+        }
+        letra = sentence[c];
+        freq = 0;
+        for(j = 0; j < length; j++){
+            //caso a letra atual esteja na palavra incrementa o contador de frequencia
+            if(letra == sentence[j]){
+                freq++;
+            }   
+       }
+        //caso encontre uma letra que não se repita imprime a letra e sai da função
+        if(freq < 2){
+            printf("%c", letra);
+            printf("\nfirstNonRepeatingChar::END\n");
+            return -1;
+        }
+        
+    }
     
+    //caso todas as letras se repitam imprime -1 e termina a função
+    printf("%d\n", -1);
     printf("\nfirstNonRepeatingChar::END\n");
     return -1;
 }
