@@ -13,11 +13,24 @@
 
 bool isPalindrome (char sentence[], int length) {
     printf("\nisPalindrome::START: %s, %d\n", sentence, length);
-
-    // TODO: YOUR CODE HERE!
+   
+    int i,pal=0;
+     
+    for(i=0;i<length;i++){
+        if(sentence[i]==sentence[length-1-i]){
+            pal++;
+        }
+    }
+    if(length==pal){
+        printf("true\n");
+        return true;
+    }
+    else{
+        printf("false\n");
+        return false;
+    }
     
     printf("\nisPalindrome::END\n");
-    return false;
 }
 
 int main()
@@ -34,4 +47,5 @@ int main()
 
     return 0;
 }
+
  
